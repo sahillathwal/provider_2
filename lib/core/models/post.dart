@@ -3,18 +3,21 @@ class Post {
   int id;
   String title;
   String body;
+  int likes;
 
   Post(
       {required this.userId,
       required this.id,
       required this.title,
-      required this.body});
+      required this.body,
+      required this.likes});
 
   Post.fromJson(Map<String, dynamic> json)
       : userId = json['userId'],
         id = json['id'],
         title = json['title'],
-        body = json['body'];
+        body = json['body'],
+        likes = 0;
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -22,6 +25,7 @@ class Post {
     data['id'] = id;
     data['title'] = title;
     data['body'] = body;
+    data['likes'] = likes;
     return data;
   }
 }
